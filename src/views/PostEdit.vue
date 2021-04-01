@@ -27,6 +27,7 @@
 <script>
 import axios from "axios";
 // info is not displaying in text boxes
+// it also doesn't work
 export default {
   data: function () {
     return {
@@ -44,13 +45,13 @@ export default {
     updatePost: function (post) {
       var params = {
         title: post.title,
-        imageUrl: post.image_url,
+        image: post.image,
         body: post.body,
       };
       axios
-        .patch("api/posts/" + post.id, params)
-        .then((response) => {
-          console.log(response.data);
+        .patch("api/posts/" + this.$route.params.id, params)
+        .then(() => {
+          this.$router.push("/recipes/" + this.recipe.id);
         })
         .catch((errors) => console.log(errors.data));
     },

@@ -18,6 +18,7 @@
       <div class="form-group">
         <label>Body:</label>
         <input type="text" class="form-control" v-model="body" />
+        <small v-if="body.length > 0 && body.length < 200">{{ 1000 - body.length }} characters left</small>
       </div>
       <!-- this button isn't doing anything for whatever reason. -->
       <input type="submit" class="btn btn-primary" value="Submit" />
